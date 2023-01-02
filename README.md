@@ -3,7 +3,7 @@ First TinyC, then MiniC
 
 ## Progress
  - ch2: `done`
- - ch3
+ - ch3: `done`
  - ch4
  - ch5
  - ch6
@@ -25,11 +25,17 @@ Platform: Ubuntu 22.04
 ```shell
 $ sudo apt-get install build-essential
 ```
-## ch2
+## ch2 TinyC Specification
+TinyC 是 C 语言中非常小的子集，所有 C 语法的规则均适用于 TinyC 语法， TinyC 源程序可直接用 gcc 编译
 ```shell
 $ gcc -o tinyc tinyc.c
 $ ./tinyc
 ```
-## ch3
+## ch4
+```shell
+$ python3 pysim.py pcode_1.asm
+```
 
-
+```shell
+$ python3 pysim.py pcode_1.asm -d
+```
