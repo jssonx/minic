@@ -2,10 +2,7 @@
 First TinyC, then MiniC
 
 ## Progress
- - ch2: `done`
- - ch3: `done`
- - ch4
- - ch5
+ - ch1-5: `done`
  - ch6
  - ch7
  - ch8
@@ -34,8 +31,12 @@ $ ./tinyc
 ## ch4
 ```shell
 $ python3 pysim.py pcode_1.asm
+$ python3 pysim.py pcode_1.asm -d
 ```
 
+## ch5
+
 ```shell
-$ python3 pysim.py pcode_1.asm -d
+$ python pysim.py factor.asm -a
+$ python pysim.py factor.asm -da
 ```
