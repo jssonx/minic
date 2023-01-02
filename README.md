@@ -33,3 +33,20 @@ $ python3 pysim.py factor.asm -da
 ```shell
 $ python3 scan.py
 ```
+
+## ch8
+```shell
+$ sudo apt-get install flex
+```
+ - hide-digits：不停从标准输入（键盘）中读入字符，将其中的数字串替换成 ? 后再输出到标准输出（终端），当遇到 # 后程序退出
+ - flex：当在命令行中运行 flex 时，第二个命令行参数（此处是 hide-digits.l ）是提供给 flex 的分词模式文件， 此模式文件中主要是用户用正则表达式写的分词匹配模式，用flex 会将这些正则表达式翻译成 C 代码格式的函数 yylex ，并输出到 lex.yy.c 文件中，该函数可以看成一个有限状态自动机。
+```shell
+$ flex hide-digits.l
+$ gcc -o hide-digits lex.yy.c
+$ ./hide-digits
+```
+```shell
+$ flex word-spliter.l
+$ gcc -o word-spliter lex.yy.c
+$ ./word-spliter < word-spliter.l
+```
