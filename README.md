@@ -2,18 +2,7 @@
 First TinyC, then MiniC
 
 ## Progress
- - ch1-5: `done`
- - ch6
- - ch7
- - ch8
- - ch9
- - ch10
- - ch11
- - ch12
- - ch13
- - ch14
- - ch15
- - ch16
+ - ch1-7: `done`
 
 ## 环境配置
 Platform: Ubuntu 22.04
@@ -33,10 +22,14 @@ $ ./tinyc
 $ python3 pysim.py pcode_1.asm
 $ python3 pysim.py pcode_1.asm -d
 ```
-
 ## ch5
 
 ```shell
-$ python pysim.py factor.asm -a
-$ python pysim.py factor.asm -da
+$ python3 pysim.py factor.asm -a
+$ python3 pysim.py factor.asm -da
+```
+
+## ch7
+```shell
+$ python3 scan.py
 ```
