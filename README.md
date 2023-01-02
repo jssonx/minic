@@ -2,7 +2,8 @@
 First TinyC, then MiniC
 
 ## Progress
- - ch1-7: `done`
+- [x] ch1-7
+- [ ] ch8-16
 
 ## 环境配置
 Platform: Ubuntu 22.04
