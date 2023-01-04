@@ -14,6 +14,7 @@ First TinyC, then MiniC
 - [ch9 上下文无关语法及分析](#ch9-上下文无关语法及分析)
   - [上下文无关语法](#上下文无关语法)
   - [分析树和抽象语法树](#分析树和抽象语法树)
+  - [分析方法简介](#分析方法简介)
 
 ## Progress
 - [x] ch1-8
@@ -522,3 +523,48 @@ Expr : { 123, 25 + 24, 78 - 34, 12 * ( 23 + 9 ), ... }
 <img /> 
 <p>图9.1 语法树示意图</p> 
 </div>
+
+以上一节表达式语法为例，给定一个句子 12 + 53 ，经过观察，发现此句子可以按以下方式被推导出来：
+
+```
+Expr ==> Expr + Expr ==> number + Expr ==> number + number ==> 12 + 53
+```
+以上推导过程可以用分析树来表示：
+
+<img src="https://pandolia.net/tinyc/images/syntax_2.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
+<div style="text-align:center"> 
+<img /> 
+<p>图9.2 分析树示意图a</p> 
+</div>
+
+再看一个稍微长的句子： 12 + ( 53 - 7 ) ，其分析树如下：
+
+<img src="https://pandolia.net/tinyc/images/syntax_3.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
+<div style="text-align:center"> 
+<img /> 
+<p>图9.3 分析树示意图b</p> 
+</div>
+
+可以去掉此分析树中一些多余的节点，并进一步浓缩，得到抽象语法树：
+
+<img src="https://pandolia.net/tinyc/images/syntax_4.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
+<div style="text-align:center"> 
+<img /> 
+<p>图9.4 抽象语法树示意图a</p> 
+</div>
+
+对于这种树状结构，可以采用递归的方式加以分析，从而生成目标代码。
+
+再看一个句子： 12 + 53 * 7 ，这时候问题来了，我们发现它可以由两种不同的方式推导出来：
+
+<img src="https://pandolia.net/tinyc/images/syntax_5.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
+<div style="text-align:center"> 
+<img /> 
+<p>图9.5 抽象语法树示意图b</p> 
+</div>
+
+这就是语法的歧义性，所谓 歧义（ambiguity），就是指对于一个符合语法结构的句子，它可以由两种不同的方式被推导出来。如果一个语法中，任何一个句子的推导方式都是唯一的，那这个语法就被称为是 没有歧义 的。显然，程序语言必须是没有歧义的，对于上面的表达式，我们肯定希望它只能按后一种方式被推导。
+
+消除歧义的方法之一是改写语法，将有歧义的产生式改写成无歧义的，这种改写非常困难，而且改写后的产生式往往和原产生式相差很大，可读性非常差。另一种方法就是引入 优先级 ，不需要改写语法，当推导过程中出现歧义的时候（也就是出现两种不同的推导方式的时候），利用符号的优先级来选择需要的推导方式，这种方法将在第 12 章中介绍。
+
+### 分析方法简介
