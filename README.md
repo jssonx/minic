@@ -517,3 +517,8 @@ Expr : { 123, 25 + 24, 78 - 34, 12 * ( 23 + 9 ), ... }
 
 如，对于 “我吃饭” 这句话，只有我们知道了 主语、谓语和宾语 分别对应的是那个词，我们才能真正理解这句话的含义。
 
+<img src="https://pandolia.net/tinyc/images/syntax_1.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
+<div style="text-align:center"> 
+<img /> 
+<p>图9.1 语法树示意图</p> 
+</div>
