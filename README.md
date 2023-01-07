@@ -598,3 +598,50 @@ B –> b | bB
 |S|S –> AB|
 |AB|A –> aA|
 |aAB||
+
+继续尝试展开 aAB 中的 A ，再次对比发现，还是只能选择产生式 A -> aA ，得到：
+
+|Working-string|Production|
+|-|-|
+|S|S –> AB|
+|AB|A –> aA|
+|aAB|A –> aA|
+|aaAB||
+
+再次应用产生式 A -> aA ，得到：
+
+|Working-string|Production|
+|-|-|
+|S|S –> AB|
+|AB|A –> aA|
+|aAB|A –> aA|
+|aaAB|A –> aA|
+|aaaAB||
+
+到了这里，可以发现只能使用 A -> ε （否则无法得到 aaab ），应用此产生式后得到：
+
+|Working-string|Production|
+|-|-|
+|S|S –> AB|
+|AB|A –> aA|
+|aAB|A –> aA|
+|aaAB|A –> aA|
+|aaaAB|A -> ε|
+|aaaB||
+
+第 3 步，从 aaaB 开始，按上面同样的原则尝试展开 B ，最终得到：
+
+|Working-string|Production|
+|-|-|
+|S|S –> AB|
+|AB|A –> aA|
+|aAB|A –> aA|
+|aaAB|A –> aA|
+|aaaAB|A -> ε|
+|aaaB|B -> b|
+|aaab|ACCEPT|
+
+#### 自底向上分析
+
+
+
