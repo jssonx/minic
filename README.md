@@ -586,8 +586,15 @@ B –> b | bB
 
 第 1 步，起始符号只有一个产生式： S -> AB ，所以只能选择这个产生式，用这个产生式的右边代替 S ，于是得到一个中间句子 AB ，将选择的产生式和得到中间句子（working-string）写成列表的形式，如下：
 
-
 |Working-string|Production|
 |-|-|
 |S|S –> AB|
 |AB||
+
+第 2 步，从 AB 开始，首先展开 A ， A 有两个产生式： A -> aA, A -> ε ，我们对比一下最终句子 aaab 和 目前得到的中间句子 AB ，发现只能选择 A -> aA ，否则将无法推导出 aaab 。因此选择这个产生式，将其右边替换掉中间句子 AB 中的 A ，于是得到中间句子 aAB ：
+
+|Working-string|Production|
+|-|-|
+|S|S –> AB|
+|AB|A –> aA|
+|aAB||
