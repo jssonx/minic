@@ -582,7 +582,9 @@ A –> aA | ε
 B –> b | bB
 ```
 
-假设要分析的句子为： aaab ，首先从起始符号 S 开始。
+假设要分析的句子为： aaab 。
+
+首先从起始符号 S 开始。
 
 第 1 步，起始符号只有一个产生式： S -> AB ，所以只能选择这个产生式，用这个产生式的右边代替 S ，于是得到一个中间句子 AB ，将选择的产生式和得到中间句子（working-string）写成列表的形式，如下：
 
@@ -643,5 +645,68 @@ B –> b | bB
 
 #### 自底向上分析
 
+自底向上分析的顺序和自顶向下分析的顺序刚好相反，从给定的句子开始，不断的挑选出合适的产生式，将中间句子中的子串折叠为非终结符，最终折叠到起始符号。
+
+还是以上一节第二个语法为例，分析的句子还是： aaab 。
+
+但先将这个语法改写一下：
+
+```
+S –> AB
+A –> Aa | ε
+B –> b | bB
+```
+
+首先从最终句子 aaab 开始。从左边第一个字符 a 开始，对比语法中的所有产生式，发现没有一个产生式的右边可以完全匹配。但经过仔细观察和思考发现：可以尝试在 aaab 的最前面插入一个空句子 ε ，接下来可以应用 A -> ε ，之后再应用 A -> Aa， ... 。因此先插入空句子，得到中间句子 εaaab ，如下：
 
 
+|Working-string|Production|
+|-|-|
+|aaab|insert(ε)|
+|εaaab||
+
+此时，中间句子的最左边 ε 可以和 A -> ε 匹配了，因此，我们应用这个产生式，将 ε 折叠为 A ，得到 Aaaab ：
+
+|Working-string|Production|
+|-|-|
+|aaab|insert(ε)|
+|εaaab|A -> ε|
+|Aaaab||
+
+再观察中间句子 Aaaab ，发现它的最前面的 Aa 可以和 A -> Aa 匹配上，且只能和这个产生式匹配上，因此应用此产生式，将 Aa 折叠为 A ，得到 Aaab ：
+
+|Working-string|Production|
+|-|-|
+|aaab|insert(ε)|
+|εaaab|A -> ε|
+|Aaaab|A -> Aa|
+|Aaab||
+
+按以上原则，一步一步的将中间句子的子串折叠为非终结符，最终折叠到起始符号 S ，过程如下：
+
+|Working-string|Production|
+|-|-|
+|aaab|insert(ε)|
+|εaaab|A -> ε|
+|Aaaab|A -> Aa|
+|Aaab|A -> Aa|
+|Aab|A -> Aa|
+|Ab|B -> b|
+|AB|S -> AB|
+|S|ACCEPT|
+
+#### 分析流程图
+
+两种分析方法的分析流程见下面两个图：
+
+<img src="./image/ch9/9.6.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
+<div style="text-align:center"> 
+<img /> 
+<p>图9.6 自顶向下分析法流程图</p> 
+</div>
+
+<img src="./image/ch9/9.7.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
+<div style="text-align:center"> 
+<img /> 
+<p>图9.7 自底向上分析法流程图</p> 
+</div>
