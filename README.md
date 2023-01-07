@@ -547,8 +547,7 @@ Expr ==> Expr + Expr ==> number + Expr ==> number + number ==> 12 + 53
 
 可以去掉此分析树中一些多余的节点，并进一步浓缩，得到抽象语法树：
 
-<img src="./image/ch9/9.4.png"/> 
-
+<img src="./image/ch9/9.4.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
 <div style="text-align:center"> 
 <img /> 
 <p>图9.4 抽象语法树示意图a</p> 
@@ -558,7 +557,7 @@ Expr ==> Expr + Expr ==> number + Expr ==> number + number ==> 12 + 53
 
 再看一个句子： 12 + 53 * 7 ，这时候问题来了，我们发现它可以由两种不同的方式推导出来：
 
-<img src="./image/ch9/9.5.png"/> 
+<img src="./image/ch9/9.5.png" width="auto" height="auto" style="display: block; margin: 0 auto;" /> 
 <div style="text-align:center"> 
 <img /> 
 <p>图9.5 抽象语法树示意图b</p> 
