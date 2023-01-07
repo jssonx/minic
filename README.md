@@ -518,7 +518,7 @@ Expr : { 123, 25 + 24, 78 - 34, 12 * ( 23 + 9 ), ... }
 
 如，对于 “我吃饭” 这句话，只有我们知道了 主语、谓语和宾语 分别对应的是那个词，我们才能真正理解这句话的含义。
 
-<img src="https://pandolia.net/tinyc/images/syntax_1.png" style="display: block; margin: 0 auto;" /> 
+<img src="https://pandolia.net/tinyc/images/syntax_1.png"/> 
 <div style="text-align:center"> 
 <img /> 
 <p>图9.1 语法树示意图</p> 
@@ -531,7 +531,7 @@ Expr ==> Expr + Expr ==> number + Expr ==> number + number ==> 12 + 53
 ```
 以上推导过程可以用分析树来表示：
 
-<img src="https://pandolia.net/tinyc/images/syntax_2.png" style="display: block; margin: 0 auto;" /> 
+<img src="https://pandolia.net/tinyc/images/syntax_2.png"/> 
 <div style="text-align:center"> 
 <img /> 
 <p>图9.2 分析树示意图a</p> 
@@ -539,7 +539,7 @@ Expr ==> Expr + Expr ==> number + Expr ==> number + number ==> 12 + 53
 
 再看一个稍微长的句子： 12 + ( 53 - 7 ) ，其分析树如下：
 
-<img src="https://pandolia.net/tinyc/images/syntax_3.png" style="display: block; margin: 0 auto;" /> 
+<img src="https://pandolia.net/tinyc/images/syntax_3.png"/> 
 <div style="text-align:center"> 
 <img /> 
 <p>图9.3 分析树示意图b</p> 
@@ -547,7 +547,7 @@ Expr ==> Expr + Expr ==> number + Expr ==> number + number ==> 12 + 53
 
 可以去掉此分析树中一些多余的节点，并进一步浓缩，得到抽象语法树：
 
-<img src="https://pandolia.net/tinyc/images/syntax_4.png" style="display: block; margin: 0 auto;" /> 
+<img src="https://pandolia.net/tinyc/images/syntax_4.png"/> 
 <div style="text-align:center"> 
 <img /> 
 <p>图9.4 抽象语法树示意图a</p> 
@@ -557,7 +557,7 @@ Expr ==> Expr + Expr ==> number + Expr ==> number + number ==> 12 + 53
 
 再看一个句子： 12 + 53 * 7 ，这时候问题来了，我们发现它可以由两种不同的方式推导出来：
 
-<img src="https://pandolia.net/tinyc/images/syntax_5.png" style="display: block; margin: 0 auto;" /> 
+<img src="https://pandolia.net/tinyc/images/syntax_5.png"/> 
 <div style="text-align:center"> 
 <img /> 
 <p>图9.5 抽象语法树示意图b</p> 
