@@ -940,6 +940,21 @@ B' –>  aACB' | ε
 C  –>  b | ε
 ```
 
+计算结果如下：
+
+```
+First(C)   =  {b, ε}
+First(B')  =  {a, ε}
+First(B)   =  {c}
+First(A)   =  {b, a, ε}
+First(S)   =  {b, a, c}
+
+Follow(S)  = {$}
+Follow(B)  = {$}
+Follow(B') = {$}
+Follow(C)  = {a, $}
+Follow(A)  = {c, b, a, $}
+```
 
 
 
